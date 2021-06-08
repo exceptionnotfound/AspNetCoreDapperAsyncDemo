@@ -10,7 +10,6 @@ using Microsoft.AspNetCore.Mvc;
 namespace DapperCoreTest.Controllers
 {
     [Route("api/[controller]")]
-    [ApiController]
     public class EmployeeController : ControllerBase
     {
         private readonly IEmployeeRepository _employeeRepo;
@@ -20,15 +19,13 @@ namespace DapperCoreTest.Controllers
             _employeeRepo = employeeRepo;
         }
 
-        [HttpGet]
-        [Route("{id}")]
+        [HttpGet("{id}")]
         public async Task<ActionResult<Employee>> GetByID(int id)
         {
             return await _employeeRepo.GetByID(id);
         }
 
-        [HttpGet]
-        [Route("dob/{dateOfBirth}")]
+        [HttpGet("dob/{dateOfBirth}")]
         public async Task<ActionResult<List<Employee>>> GetByID(DateTime dateOfBirth)
         {
             return await _employeeRepo.GetByDateOfBirth(dateOfBirth);

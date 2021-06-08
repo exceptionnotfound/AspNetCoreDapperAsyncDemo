@@ -24,7 +24,7 @@ namespace DapperCoreTest.Repositories
         {
             get
             {
-                return new SqlConnection(_config.GetConnectionString("SystemMemberConnectionString"));
+                return new SqlConnection(_config.GetConnectionString("EmployeeConnectionString"));
             }
         }
 
